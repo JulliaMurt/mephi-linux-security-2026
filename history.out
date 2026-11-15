@@ -1,0 +1,40 @@
+    1  sudo groupadd students
+    2  sudo useradd -u 1234 -g students -m -s /bin/bash user1
+    3  sudo passwd user1
+    4  sudo change -M 90 user1
+    5  sudo chage -M 90 user1
+    6  sudo chage -1 user1
+    7  sudo chage -L user1
+    8  sudo chage -l user1
+    9  sudo find / -perm -4000 -type f 2>/dev/null
+   10  sudo find / -perm -4000 -type f 2>/dev/null > ~/setuid-files.out
+   11* 
+   12  sudo find / -perm -4000 -type f 2>/dev/null > ~/setuid-files.out
+   13  ps -eo pid,ruid,euid,cmd | awk 'NR==1 || ($2 >= 1000 && $3 ==0)'
+   14  ps -eo pid,ruid,euid,cmd | awk 'NR==1 || ($2 >= 1000 && $3 ==0)' > ~/privileged-process.out
+   15  sudo cp /bin/cat /home/user1/mycat
+   16  sudo chmod root:root /home/user1/mycat
+   17  sudo chown root:root /home/user1/mycat
+   18  sudo chmod u+s /home/user1/mecat
+   19  sudo chmod u+s /home/user1/mycat
+   20  ls -l /home/user1/mycat
+   21  sudo ls -l /home/user1/mycat
+   22  sudo su - user1 -c '/home/user1/mycat /etc/shadow'
+   23  sudo cp /bin/chown /home/user1/mychown
+   24  sudo setcap cap_chown+ep /home/user1/mychown
+   25  getcap /home/user1/mychown
+   26  sudo getcap /home/user1/mychown
+   27  sudo touch /home/user1/testfile
+   28  sudo chown root:root /home/user1/testfile
+   29  sudo su - user1 -c '/home/user1/mychown user1 /home/user1/testfile'
+   30  sudo ls -l /home/user1/testfile
+   31  sudo visudo
+   32  ps aux | grep -E 'visudo|vim|vi'
+   33  sudo kill -9 4353
+   34  sudo kill -9 4355
+   35  sudo visudo
+   36  sudo timedatectl set-ntp false
+   37  echo 375013
+   38  sudo history >~/history.out
+   39  sudo history > ~/history.out
+   40  history > ~/history.out
